@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    font-family: 'Bungee', cursive; 
+}
+
+a {
+    color: rgb(84, 152, 216);
+}
+
+a:hover {
+    color: rgb(24, 142, 252);
+}
