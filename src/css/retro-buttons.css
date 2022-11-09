@@ -1,0 +1,57 @@
+/* 
+    Retro Shadow Buttons written by Amanbeer Khanduja.
+    The default font used here is Roboto Mono, feel free to change it to whatever you like.
+    (I recommend monospaced fonts to match the vibe.)
+
+    ___________________________
+
+    Extended by me (Grayson A) to further fit my site
+*/
+
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400&display=swap'); */
+
+.retro{
+    display: inline-block;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background: rgb(20, 20, 20);
+    color: rgb(175, 40, 40);
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    border: 3px solid rgb(175, 40, 40)!important;
+    border-radius: 0;
+    /* box-shadow: 3px 3px black, 5px 5px white; */
+    padding-right: 5%;
+    margin-top: 20px;
+
+    transition: transform 100ms ease;
+}
+
+.retro:hover{
+    color: black;
+    background: #f7efd6;
+    border: 3px solid rgb(20, 20, 20)!important;
+}
+
+.retro:active{
+    border: 3px solid rgb(20, 20, 20)!important;
+    background-color: #f7efd6!important;
+    color: black!important;
+    box-shadow: 0px 0px white;
+    transform: scale(105%); 
+    /* transform: translateX(5px) translateY(2px);  */
+}
+
+.rbtn-small{
+    /* box-shadow: 2px 2px black, 4px 4px white; */
+    padding:10px;
+}
+
+.rbtn-big{
+    /* box-shadow: 2px 2px black, 3px 3px white; */
+    padding: 20px;
+}

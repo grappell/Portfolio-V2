@@ -159,8 +159,7 @@
 		color: white;
 		cursor: pointer;
 		display: block;
-		/* font-family: 'Ibarra Real Nova', serif; */
-		font-size: clamp(3rem, 8vw, 8rem);
+		font-size: clamp(3rem, 8vw, 6rem);
 		padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
 		text-decoration: none;
 		transition: opacity 400ms ease;
@@ -259,67 +258,4 @@
 	input[type='checkbox'] {
 		display: none;
 	}
-
-	/* .wrapper ul {
-		position: absolute;
-		top: 60%;
-		left: 50%;
-		height: 90%;
-		transform: translate(-50%, -50%);
-		list-style: none;
-		text-align: center;
-	}
-	.wrapper ul li {
-		height: 10%;
-		margin: 15px 0;
-	}
-	.wrapper ul li a {
-		text-decoration: none;
-		font-size: 50px;
-		font-weight: 500;
-		padding: 15px 30px;
-		color: #fff;
-		border-radius: 50px;
-		position: absolute;
-		line-height: 45px;
-		margin: 15px 30px;
-		opacity: 0;
-		transition: all 0.3s ease;
-		transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-	}
-	.wrapper ul li a:after {
-		position: absolute;
-		content: '';
-		background: #5555;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		border-radius: 10px;
-		transform: scaleY(0.9);
-		opacity: 0;
-		z-index: -1;
-		transition: transform 0.3s ease, opacity 0.2s ease;
-	}
-	.wrapper ul li a:hover:after {
-		transform: scaleY(1);
-		opacity: 1;
-	}
-	.wrapper ul li a:hover {
-		color: rgb(175, 40, 40);
-	} */
-
-	/* #active:checked ~ .wrapper ul li a {
-		opacity: 1;
-	}
-	.wrapper ul li a {
-		transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
-		transform: translateX(100px);
-	}
-	#active:checked ~ .wrapper ul li a {
-		transform: none;
-		transition-timing-function: ease, cubic-bezier(0.1, 1.3, 0.3, 1);
-		transition-delay: 0.6s;
-		transform: translateX(-100px);
-	} */
 </style>

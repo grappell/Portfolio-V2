@@ -1,5 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import anime from 'animejs/lib/anime';
+
+	import { useEffect } from '../lib/hooks';
+
+	export let clicked = false;
 
 	let colums;
 	let rows;
@@ -7,16 +12,42 @@
 	let wrapper;
 	let body;
 
+	let hasStarted = false;
+
+	// make sure that the event only fires once
+	useEffect(
+		() => {
+			if (hasStarted) {
+				console.log('Clicked on button');
+			}
+
+			hasStarted = true;
+		},
+		() => [clicked]
+	);
+
 	const createTile = (index) => {
 		const tile = document.createElement('div');
 		tile.classList.add('tile');
 		tile.style.backgroundColor = 'rgb(20, 20, 20)';
+
+		tile.onclick = (e) => handleOnClick(index);
+
 		return tile;
 	};
 
 	const createTiles = (quantity) => {
 		Array.from(Array(quantity)).map((tile, index) => {
 			wrapper.appendChild(createTile(index));
+		});
+	};
+
+	const handleOnClick = (index) => {
+		console.log(clicked, index);
+
+		anime({
+			targets: '.tile',
+			backgroundColor: 'rgb(175, 40, 40)'
 		});
 	};
 
@@ -53,11 +84,6 @@
 	});
 </script>
 
-<!-- <div class="text-2xl">
-	<h1>Welcome to SvelteKit</h1>
-	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-</div> -->
-<!-- <div class="tile" /> -->
 <div id="body" class="w-[100%] h-[100vh] absolute top-0 left-0 -z-10">
 	<div id="tiles" />
 </div>
