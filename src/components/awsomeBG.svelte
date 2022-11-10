@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import anime from 'animejs/lib/anime';
-
 	import { useEffect } from '../lib/hooks';
+	import { getOffset } from '../lib/helpers';
 
 	export let clicked = false;
 
@@ -19,6 +19,52 @@
 		() => {
 			if (hasStarted) {
 				console.log('Clicked on button');
+				let button = document.getElementById('text');
+
+				let pos = { x: getOffset(button).left, y: getOffset(button).top };
+				let offsets = { width: button.offsetWidth / 2, height: button.offsetHeight / 2 };
+
+				let elements = document.elementsFromPoint(pos.x + offsets.width, pos.y + offsets.height);
+
+				elements.forEach((element) => {
+					// console.log(element.classList.contains('tile'), element);
+
+					if (element.classList.contains('tile')) {
+						// console.log(element, 'this is the tile');
+						// element.style.backgroundColor = 'rgb(175, 40, 40)';
+
+						// document.getElementById('tiles').style.gap = '0';
+
+						let index = element.dataset.index;
+
+						anime({
+							targets: '.tile',
+							backgroundColor: 'rgb(175, 40, 40)',
+							// backgroundColor: 'rgb(20, 20, 20)',
+							delay: anime.stagger(50, {
+								grid: [colums, rows],
+								from: index
+							})
+						});
+
+						anime({
+							targets: '#body',
+							background: 'rgb(175, 40, 40)',
+							// backgroundColor: 'rgb(20, 20, 20)',
+							delay: anime.stagger(50, {
+								grid: [colums, rows],
+								from: index
+							})
+						});
+
+						// anime({
+						// 	targets: 'div',
+						// 	// opacity: '0',
+						// 	backgroundColor: 'rgb(20, 20, 20)',
+						// 	delay: 1000
+						// });
+					}
+				});
 			}
 
 			hasStarted = true;
@@ -29,6 +75,7 @@
 	const createTile = (index) => {
 		const tile = document.createElement('div');
 		tile.classList.add('tile');
+		tile.dataset.index = index;
 		tile.style.backgroundColor = 'rgb(20, 20, 20)';
 
 		tile.onclick = (e) => handleOnClick(index);
@@ -54,7 +101,7 @@
 	const createGrid = () => {
 		wrapper.innerHTML = '';
 
-		colums = Math.floor(document.body.clientWidth / 50);
+		colums = Math.floor(document.body.clientWidth / 51);
 		rows = Math.floor(document.body.clientHeight / 50);
 
 		wrapper.style.setProperty('--cols', colums);
