@@ -2,14 +2,26 @@
 	import anime from 'animejs';
 	import { onMount } from 'svelte';
 
+	import { transitionManager } from '../../lib/store';
+
 	onMount(() => {
-		anime({
-			targets: '#root-div',
-			backgroundColor: 'rgb(20, 20, 20)',
-			// delay: 500,
-			duration: 500,
-			easing: 'linear'
-		});
+		const isOnTour = $transitionManager.transitionAbout;
+
+		if (isOnTour) {
+			anime({
+				targets: '#root-div',
+				backgroundColor: 'rgb(20, 20, 20)',
+				// delay: 500,
+				duration: 500,
+				easing: 'linear'
+			});
+
+			transitionManager.update((current) => {
+				return { ...current, transitionAbout: false };
+			});
+		} else {
+			document.getElementById('root-div').style.backgroundColor = 'rgb(20, 20, 20)';
+		}
 
 		anime({
 			targets: '.fade-in',

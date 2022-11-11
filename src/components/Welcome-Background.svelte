@@ -1,15 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
+	import { goto, prefetch } from '$app/navigation';
 
 	import { useEffect } from '../lib/hooks';
 	import { getOffset } from '../lib/helpers';
+	import { transitionManager } from '../lib/store';
 
 	import anime from 'animejs/lib/anime';
 
 	export let clicked = false;
 
-	let colums;
+	let columns;
 	let rows;
 
 	let wrapper;
@@ -29,6 +30,8 @@
 
 				let elements = document.elementsFromPoint(pos.x + offsets.width, pos.y + offsets.height);
 
+				prefetch('/about');
+
 				elements.forEach((element) => {
 					// console.log(element.classList.contains('tile'), element);
 
@@ -44,8 +47,8 @@
 							targets: '.tile',
 							backgroundColor: 'rgb(175, 40, 40)',
 							// backgroundColor: 'rgb(20, 20, 20)',
-							delay: anime.stagger(20, {
-								grid: [colums, rows],
+							delay: anime.stagger(50, {
+								grid: [columns, rows],
 								from: index
 							})
 						});
@@ -54,10 +57,11 @@
 							targets: '#body',
 							background: 'rgb(175, 40, 40)',
 							// backgroundColor: 'rgb(20, 20, 20)',
-							delay: anime.stagger(20, {
-								grid: [colums, rows],
-								from: index
-							})
+							delay: 1000
+							// anime.stagger(20, {
+							// 	grid: [columns, rows],
+							// 	from: index
+							// })
 						});
 
 						anime({
@@ -66,11 +70,17 @@
 							// backgroundColor: 'rgb(20, 20, 20)',
 							easing: 'easeOutSine',
 							duration: 100,
-							delay: 1000,
+							delay: 100,
 							complete: () => {
+								transitionManager.update((data) => {
+									return { ...data, transitionAbout: true };
+								});
+
 								setTimeout(() => {
+									console.log($transitionManager);
 									goto('/about');
-								}, 1000);
+									// goto('/about');
+								}, 2000);
 							}
 						});
 					}
@@ -111,23 +121,23 @@
 	const createGrid = () => {
 		wrapper.innerHTML = '';
 
-		colums = Math.floor(document.body.clientWidth / 51);
+		columns = Math.floor(document.body.clientWidth / 51);
 		rows = Math.floor(document.body.clientHeight / 50);
 
-		wrapper.style.setProperty('--cols', colums);
+		wrapper.style.setProperty('--cols', columns);
 		wrapper.style.setProperty('--rows', rows);
 
-		createTiles(colums * rows);
+		createTiles(columns * rows);
 	};
 
 	onMount(() => {
 		wrapper = document.getElementById('tiles');
 		body = document.getElementById('body');
 
-		colums = Math.floor(document.body.clientWidth / 50);
+		columns = Math.floor(document.body.clientWidth / 50);
 		rows = Math.floor(document.body.clientHeight / 50);
 
-		createTiles(colums * rows);
+		createTiles(columns * rows);
 
 		window.onresize = () => createGrid();
 
