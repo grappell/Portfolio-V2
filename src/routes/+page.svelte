@@ -9,12 +9,12 @@
 	<AwsomeBg {clicked} />
 	<div class="px-5 h-[100vh] max-w-lg md:max-w-[160ch]">
 		<p
-			class="text-gray-400 text-6xl font-semibold text-center translate-y-[12vh] md:translate-y-[25vh] mb-10 md:mb-20 md:text-8xl"
+			class="text-gray-400 text-6xl font-semibold text-center translate-y-[12vh] md:translate-y-[25vh] mb-10 md:mb-20 md:text-8xl titles"
 		>
 			Hello, my name is <span class="text-red-500">Grayson Appell</span>
 		</p>
 		<div
-			class="text-gray-400 text-6xl font-semibold text-center translate-y-[12vh] md:translate-y-[25vh]"
+			class="text-gray-400 text-6xl font-semibold text-center translate-y-[12vh] md:translate-y-[25vh] titles"
 		>
 			<p>Welcome to <span class="text-red-500">Studio Wifi</span></p>
 			<div class="flex-none md:mt-40 mt-20">

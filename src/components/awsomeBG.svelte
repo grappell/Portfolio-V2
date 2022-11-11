@@ -1,8 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
-	import anime from 'animejs/lib/anime';
+	import { goto } from '$app/navigation';
+
 	import { useEffect } from '../lib/hooks';
 	import { getOffset } from '../lib/helpers';
+
+	import anime from 'animejs/lib/anime';
 
 	export let clicked = false;
 
@@ -41,7 +44,7 @@
 							targets: '.tile',
 							backgroundColor: 'rgb(175, 40, 40)',
 							// backgroundColor: 'rgb(20, 20, 20)',
-							delay: anime.stagger(50, {
+							delay: anime.stagger(20, {
 								grid: [colums, rows],
 								from: index
 							})
@@ -51,18 +54,25 @@
 							targets: '#body',
 							background: 'rgb(175, 40, 40)',
 							// backgroundColor: 'rgb(20, 20, 20)',
-							delay: anime.stagger(50, {
+							delay: anime.stagger(20, {
 								grid: [colums, rows],
 								from: index
 							})
 						});
 
-						// anime({
-						// 	targets: 'div',
-						// 	// opacity: '0',
-						// 	backgroundColor: 'rgb(20, 20, 20)',
-						// 	delay: 1000
-						// });
+						anime({
+							targets: '.titles',
+							opacity: '0',
+							// backgroundColor: 'rgb(20, 20, 20)',
+							easing: 'easeOutSine',
+							duration: 100,
+							delay: 1000,
+							complete: () => {
+								setTimeout(() => {
+									goto('/about');
+								}, 1000);
+							}
+						});
 					}
 				});
 			}

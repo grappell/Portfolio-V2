@@ -36,6 +36,9 @@
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
+<!-- <a href="/">
+		<div id="logo">Studio Wifi</div>
+	</a> -->
 <input type="checkbox" id="active" />
 <label for="active" class="menu-btn"><span /></label>
 <label for="active" class="close" />
@@ -51,8 +54,8 @@
 	<div id="menu">
 		<div id="menu-items">
 			<!-- I made these divs instead of links so you can click on mobile to view the effect -->
-			<a href="/#" on:click={hideMenu} class="menu-item">Home</a>
-			<a href="/#" on:click={hideMenu} class="menu-item">About</a>
+			<a href="/" on:click={hideMenu} class="menu-item">Home</a>
+			<a href="/about" on:click={hideMenu} class="menu-item">About</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Projects</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Resume</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Contact</a>
@@ -63,6 +66,33 @@
 </div>
 
 <style>
+	/* #logo {
+		border-radius: 10px;
+		font-size: 25px;
+		padding: 9px;
+		padding-left: 35px;
+		padding-right: 35px;
+		font-weight: 600;
+		background-color: rgb(175, 40, 40);
+		position: fixed;
+		z-index: 700;
+		left: 20px;
+		top: 20px;
+		text-align: center;
+	}
+
+	#logo:hover {
+		background-color: rgb(104, 24, 24);
+		color: white;
+		cursor: pointer;
+	} */
+
+	a {
+		text-decoration: none;
+		margin: 0;
+		color: inherit;
+	}
+
 	#menu {
 		align-items: center;
 		display: flex;
@@ -202,8 +232,8 @@
 		right: 20px;
 		/*left: 20px; */
 		top: 20px;
-		height: 50px;
-		width: 50px;
+		height: 55px;
+		width: 55px;
 		text-align: center;
 		line-height: 50px;
 		border-radius: 50%;
