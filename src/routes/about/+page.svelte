@@ -27,11 +27,11 @@
 	class=" text-orange-100 w-full min-h-full flex flex-row justify-center relative overflow-x-hidden"
 	id="root-div"
 >
-	<div class="px-5 h-[100vh] max-w-lg md:max-w-[160ch]" id="content">
+	<div class="px-5 h-[100vh] max-w-lg md:max-w-[160ch] pr-10" id="content">
 		<p class="md:text-7xl text-5xl mt-40 uppercase font-bold fade-in ml-2">About Me</p>
-		<p class="fade-in ml-2 text-red-700">Grayson Appell</p>
+		<p class="fade-in ml-2 text-red-700 py-2 pb-0">Grayson Appell</p>
 
-		<hr class="fade-in my-5 md:w-1/2" />
+		<hr class="fade-in my-5 md:mt-4 mt-3 md:w-1/2" />
 
 		<p class="fade-in paragraph">
 			Commodo ad proident reprehenderit consequat officia consequat in aute et deserunt commodo
