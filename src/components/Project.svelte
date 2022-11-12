@@ -32,7 +32,7 @@
 			<div class="ctx-title text-orange-400 font-thin">Featured Project</div>
 			<div class="title font-semibold text-4xl mt-3 mb-4">{props.title}</div>
 			<div
-				class="tools text-gray-400 text-center overflow-clip flex flex-row flex-wrap justify-center mb-6"
+				class="tools text-gray-400 text-center overflow-clip flex flex-row flex-wrap justify-start mb-6"
 			>
 				{#each props.technologies as technologies}
 					<div class="space">{technologies}</div>
@@ -41,7 +41,7 @@
 			<div class="desc mb-5 text-l border rounded-lg p-5 border-gray-600">
 				{props.description}
 			</div>
-			<div class="links flex flex-row justify-center gap-5">
+			<div class="links flex flex-row justify-center gap-20">
 				{#if props.externalLink}
 					<a
 						class="hover:cursor-pointer"
@@ -69,7 +69,7 @@
 
 <style>
 	.space {
-		margin-left: 10px;
+		margin-right: 10px;
 		/* text-decoration: underline; */
 	}
 </style>

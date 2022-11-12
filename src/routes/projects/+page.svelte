@@ -9,7 +9,7 @@
 		{
 			title: 'MainLineMusic',
 			description:
-				"A full stack web app written in Next.js, using Turborepo as a monorepo, Stripe for payment, and Firebase as the main database to build a inteactive online experience that leaves new and returning users's jaws on the floor. Fully crafted by me.",
+				"A full stack web app written in Next.js, using Turborepo as a monorepo, Stripe for payment, and Firebase as the main database to build a interactive online experience that leaves new and returning users's jaws on the floor. Fully crafted by me.",
 			technologies: ['Next.js', 'React', 'Firebase', 'Turborepo', 'Stripe', 'Supabase'],
 			img: 'MLM-Logo.jpg',
 			externalLink: 'https://mainlinemusic.live'
