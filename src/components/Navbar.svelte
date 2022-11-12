@@ -4,7 +4,7 @@
 	let checkbox;
 
 	const hideMenu = () => {
-		console.log('disabled');
+		// console.log('disabled');
 		checkbox.checked = false;
 	};
 

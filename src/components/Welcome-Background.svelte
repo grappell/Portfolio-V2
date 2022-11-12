@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { goto, prefetch } from '$app/navigation';
+	import { goto } from '$app/navigation';
 
 	import { useEffect } from '../lib/hooks';
 	import { getOffset } from '../lib/helpers';
@@ -29,8 +29,6 @@
 				let offsets = { width: button.offsetWidth / 2, height: button.offsetHeight / 2 };
 
 				let elements = document.elementsFromPoint(pos.x + offsets.width, pos.y + offsets.height);
-
-				prefetch('/about');
 
 				elements.forEach((element) => {
 					// console.log(element.classList.contains('tile'), element);
@@ -77,9 +75,7 @@
 								});
 
 								setTimeout(() => {
-									console.log($transitionManager);
-									goto('/about');
-									// goto('/about');
+									goto('/projects');
 								}, 2000);
 							}
 						});
@@ -110,8 +106,6 @@
 	};
 
 	const handleOnClick = (index) => {
-		console.log(clicked, index);
-
 		anime({
 			targets: '.tile',
 			backgroundColor: 'rgb(175, 40, 40)'
@@ -157,7 +151,8 @@
 
 <style>
 	:root {
-		--col-1: rgb(71, 0, 0);
+		/* --col-1: rgb(71, 0, 0); */
+		--col-1: rgb(56, 0, 0);
 		--col-2: rgb(175, 40, 40);
 	}
 
