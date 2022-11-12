@@ -55,8 +55,8 @@
 		<div id="menu-items">
 			<!-- I made these divs instead of links so you can click on mobile to view the effect -->
 			<a href="/" on:click={hideMenu} class="menu-item">Home</a>
+			<a href="/projects" on:click={hideMenu} class="menu-item">Projects</a>
 			<a href="/about" on:click={hideMenu} class="menu-item">About</a>
-			<a href="/#" on:click={hideMenu} class="menu-item">Projects</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Resume</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Contact</a>
 		</div>
