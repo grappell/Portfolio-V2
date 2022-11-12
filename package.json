@@ -30,6 +30,7 @@
 	"type": "module",
 	"dependencies": {
 		"animejs": "^3.2.1",
+		"lodash": "^4.17.21",
 		"svelte-transition": "^0.0.6"
 	}
 }

@@ -1,37 +1,38 @@
 <script>
-	import anime from 'animejs';
-	import { onMount } from 'svelte';
-	import ProjectCard from '../../components/Project.svelte';
+	import anime from "animejs";
+	import { onMount } from "svelte";
+	import ProjectCard from "../../components/Project.svelte";
 
-	import { transitionManager } from '../../lib/store';
+	import { transitionManager } from "../../lib/store";
+
+	// TODO: Make a longer description for this site
 
 	const projects = [
 		{
-			title: 'MainLineMusic',
+			title: "MainLineMusic",
 			description:
 				"A full stack web app written in Next.js, using Turborepo as a monorepo, Stripe for payment, and Firebase as the main database to build a interactive online experience that leaves new and returning users's jaws on the floor. Fully crafted by me.",
-			technologies: ['Next.js', 'React', 'Firebase', 'Turborepo', 'Stripe', 'Supabase'],
-			img: 'MLM-Logo.jpg',
-			externalLink: 'https://mainlinemusic.live'
+			technologies: ["Next.js", "React", "Firebase", "Turborepo", "Stripe", "Supabase"],
+			img: "MLM-Logo.jpg",
+			externalLink: "https://mainlinemusic.live",
 		},
 		{
-			title: 'Adipisicing',
-			description:
-				'Aliquip anim id ut adipisicing aliqua. Cillum magna occaecat aliqua non excepteur consequat amet aliqua nulla qui. Nulla dolor consectetur quis sint excepteur fugiat commodo velit ad',
-			technologies: ['JS', 'Next.js', 'React', 'Redux'],
-			img: '',
-			externalLink: '/',
-			gitLink: '/'
+			title: "Portfolio Site",
+			description: "Wow, you don't say?",
+			technologies: ["Sveltekit", "Tailwind", "Vercel", "Vite"],
+			img: "portfolioLanding.png",
+			externalLink: "/",
+			gitLink: "https://github.com/grappell/Portfolio-V2",
 		},
-		{
-			title: 'Project',
-			description:
-				'Aliquip anim id ut adipisicing aliqua. Cillum magna occaecat aliqua non excepteur consequat amet aliqua nulla qui. Nulla dolor consectetur quis sint excepteur fugiat commodo velit ad',
-			technologies: ['JS', 'Next.js', 'React', 'Redux'],
-			img: '',
-			externalLink: '/',
-			gitLink: '/'
-		}
+		// {
+		// 	title: "Project",
+		// 	description:
+		// 		"Aliquip anim id ut adipisicing aliqua. Cillum magna occaecat aliqua non excepteur consequat amet aliqua nulla qui. Nulla dolor consectetur quis sint excepteur fugiat commodo velit ad",
+		// 	technologies: ["JS", "Next.js", "React", "Redux"],
+		// 	img: "",
+		// 	externalLink: "/",
+		// 	gitLink: "/",
+		// },
 	];
 
 	onMount(() => {
@@ -39,28 +40,28 @@
 
 		if (isOnTour) {
 			anime({
-				targets: '#root-div',
-				backgroundColor: 'rgb(20, 20, 20)',
+				targets: "#root-div",
+				backgroundColor: "rgb(20, 20, 20)",
 				// delay: 500,
 				duration: 500,
-				easing: 'linear'
+				easing: "linear",
 			});
 
 			transitionManager.update((current) => {
 				return { ...current, transitionAbout: false };
 			});
 		} else {
-			document.getElementById('root-div').style.backgroundColor = 'rgb(20, 20, 20)';
+			document.getElementById("root-div").style.backgroundColor = "rgb(20, 20, 20)";
 		}
 
 		anime({
-			targets: '.fade-in',
+			targets: ".fade-in",
 			opacity: 1,
 			duration: 1100,
-			easing: 'linear',
+			easing: "linear",
 			delay: anime.stagger(80, {
-				start: 800
-			})
+				start: 800,
+			}),
 		});
 	});
 </script>
@@ -82,15 +83,17 @@
 				<ProjectCard props={project} />
 			</span>
 		{/each}
+
+		<div class="spacer w-screen h-24 invisible" />
 	</div>
 </div>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@500&display=swap');
+	@import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@500&display=swap");
 
 	#root-div {
 		background-color: rgb(175, 40, 40);
-		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	}
 
 	.fade-in {
