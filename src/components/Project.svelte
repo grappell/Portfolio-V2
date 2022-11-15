@@ -40,12 +40,13 @@
 				<div id="img">
 					<div
 						class="md:h-72 h-32 w-full bg-cent rounded-xl"
-						style={`Background: url('${
+						style={`background: url('${
 							props.img
 								? props.img
 								: "https://www.technistone.com/color-range/image-slab/Noble%20Concrete%20Grey_SLAB_web2.jpg"
 						}'); background-size: cover; background-repeat: no-repeat; background-position: center;`}
 					/>
+					<!-- Todo: make a image that is a 1px by 1px gray filler, or find some other "Error, no image" image -->
 				</div>
 			</a>
 

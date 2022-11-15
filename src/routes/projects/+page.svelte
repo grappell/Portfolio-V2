@@ -19,7 +19,7 @@
 		{
 			title: "Portfolio Site",
 			description: "Wow, you don't say?",
-			technologies: ["Sveltekit", "Tailwind", "Vercel", "Vite"],
+			technologies: ["Sveltekit", "Tailwind", "Anime.js", "Vercel", "Vite"],
 			img: "portfolioLanding.png",
 			externalLink: "/",
 			gitLink: "https://github.com/grappell/Portfolio-V2",

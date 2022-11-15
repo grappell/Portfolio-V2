@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount } from "svelte";
 
 	let checkbox;
 
@@ -9,24 +9,16 @@
 	};
 
 	onMount(function () {
-		checkbox = document.getElementById('active');
+		checkbox = document.getElementById("active");
 
-		var aTags = document.getElementsByClassName('menu-a');
+		var aTags = document.getElementsByClassName("menu-a");
 
 		Array.from(aTags).forEach((element) => {
-			element.addEventListener('click', (e) => {
-				let checkbox = document.getElementById('active');
+			element.addEventListener("click", (e) => {
+				let checkbox = document.getElementById("active");
 				checkbox.checked = false;
 			});
 		});
-
-		// const menu = document.getElementById('menu');
-
-		// Array.from(document.getElementsByClassName('menu-item')).forEach((item, index) => {
-		// 	item.onmouseover = () => {
-		// 		menu.dataset.activeIndex = index;
-		// 	};
-		// });
 	});
 </script>
 
@@ -59,6 +51,7 @@
 			<a href="/about" on:click={hideMenu} class="menu-item">About</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Resume</a>
 			<a href="/#" on:click={hideMenu} class="menu-item">Contact</a>
+			<a href="/#" on:click={hideMenu} class="menu-item">Credits</a>
 		</div>
 		<div id="menu-background-pattern" data-active-index="0" />
 		<div id="menu-background-image" />
@@ -154,7 +147,7 @@
 	#menu-background-image {
 		/* background-image: url('https://images.unsplash.com/photo-1604964432806-254d07c11f32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'); */
 		/* background-image: url('https://images.unsplash.com/photo-1547157720-52d782e55b83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'); */
-		background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+		background-image: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
 		background-position: center 40%;
 		background-size: 110vmax;
 		height: 100%;
@@ -189,7 +182,8 @@
 		color: white;
 		cursor: pointer;
 		display: block;
-		font-size: clamp(3rem, 8vw, 6rem);
+		/* font-size: clamp(3rem, 8vw, 6rem); */
+		font-size: 5vmax;
 		padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
 		text-decoration: none;
 		transition: opacity 400ms ease;
@@ -201,8 +195,8 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		font-family: 'Lato', sans-serif;
-		font-family: 'Oswald', sans-serif;
+		font-family: "Lato", sans-serif;
+		font-family: "Oswald", sans-serif;
 	}
 
 	.wrapper {
@@ -249,7 +243,7 @@
 	.menu-btn span,
 	.menu-btn:before,
 	.menu-btn:after {
-		content: '';
+		content: "";
 		position: absolute;
 		top: calc(50% - 1px);
 		left: 30%;
@@ -285,7 +279,7 @@
 		border-color: #fff;
 	}
 
-	input[type='checkbox'] {
+	input[type="checkbox"] {
 		display: none;
 	}
 </style>
