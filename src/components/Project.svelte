@@ -12,7 +12,7 @@
 <div class="flex flex-col justify-center ml-0 w-[90vw] sm:w-full mr-10 p-2">
 	<div
 		id="wrapper"
-		class="my-2 bg-gray-800 relative grid md:grid-cols-2 grid-cols-1 p-6 rounded-lg w-full gap-7 shadow-xl hover:scale-[101%] transition-transform"
+		class="my-2 bg-gray-800 relative grid md:grid-cols-2 grid-cols-1 p-6 rounded-lg w-full gap-7 shadow-xl hover:scale-[101%] transition-transform min-h-[500px] md:min-h-full"
 	>
 		<a
 			href={`/projects/${kebabCase(props.title)}`}
@@ -22,9 +22,7 @@
 				<div
 					class="md:h-72 h-32 w-full bg-cent rounded-xl"
 					style={`Background: url('${
-						props.img
-							? props.img
-							: "https://www.technistone.com/color-range/image-slab/Noble%20Concrete%20Grey_SLAB_web2.jpg"
+						props.img ? props.img : "no-img2.jpg"
 					}'); background-size: cover; background-repeat: no-repeat; background-position: center;`}
 				/>
 			</div>
@@ -41,12 +39,9 @@
 					<div
 						class="md:h-72 h-32 w-full bg-cent rounded-xl"
 						style={`background: url('${
-							props.img
-								? props.img
-								: "https://www.technistone.com/color-range/image-slab/Noble%20Concrete%20Grey_SLAB_web2.jpg"
+							props.img ? props.img : "no-img2.jpg"
 						}'); background-size: cover; background-repeat: no-repeat; background-position: center;`}
 					/>
-					<!-- Todo: make a image that is a 1px by 1px gray filler, or find some other "Error, no image" image -->
 				</div>
 			</a>
 

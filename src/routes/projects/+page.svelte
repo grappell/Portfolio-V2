@@ -2,6 +2,7 @@
 	import anime from "animejs";
 	import { onMount } from "svelte";
 	import ProjectCard from "../../components/Project.svelte";
+	import { goto } from "$app/navigation";
 
 	import { transitionManager } from "../../lib/store";
 
@@ -11,7 +12,7 @@
 		{
 			title: "MainLineMusic",
 			description:
-				"A full stack web app written in Next.js, using Turborepo as a monorepo, Stripe for payment, and Firebase as the main database to build a interactive online experience that leaves new and returning users's jaws on the floor. Fully crafted by me.",
+				"A full stack web app written in Next.js, using Turborepo as a monorepo, Stripe for payment, and Firebase as the main database to build a interactive online experience that leaves new and returning users's jaws on the floor.",
 			technologies: ["Next.js", "React", "Firebase", "Turborepo", "Stripe", "Supabase"],
 			img: "MLM-Logo.jpg",
 			externalLink: "https://mainlinemusic.live",
@@ -35,8 +36,10 @@
 		// },
 	];
 
+	let isOnTour = false;
+
 	onMount(() => {
-		const isOnTour = $transitionManager.transitionAbout;
+		isOnTour = $transitionManager.transitionAbout;
 
 		if (isOnTour) {
 			anime({
@@ -62,8 +65,34 @@
 			delay: anime.stagger(80, {
 				start: 800,
 			}),
+			complete: () => {
+				if (!isOnTour) return;
+				document.getElementById("cont-button").style.opacity = 1;
+			},
 		});
 	});
+
+	function handleChange() {
+		console.log("clicked");
+		anime({
+			targets: ".fade-in",
+			opacity: 0,
+			duration: 200,
+			easing: "linear",
+			delay: anime.stagger(100, {
+				// start: 10,
+			}),
+			complete: () => {
+				transitionManager.update((data) => {
+					return { ...data, transitionAbout: true };
+				});
+
+				setTimeout(() => {
+					goto("/about");
+				}, 2000);
+			},
+		});
+	}
 </script>
 
 <div
@@ -84,6 +113,18 @@
 			</span>
 		{/each}
 
+		{#if isOnTour}
+			<div class="flex flex-row justify-center mt-20 ml-6">
+				<button
+					id="cont-button"
+					class=" bg-red-800 px-10 py-4 rounded-lg hover:bg-red-300 transition-colors hover:text-black text-2xl fade-in"
+					on:click={handleChange}
+				>
+					Continue
+				</button>
+			</div>
+		{/if}
+
 		<div class="spacer w-screen h-24 invisible" />
 	</div>
 </div>
@@ -98,6 +139,10 @@
 
 	.fade-in {
 		opacity: 0;
+	}
+
+	#cont-button {
+		transition: opacity 1100ms, color 150ms, background 150ms;
 	}
 
 	/* .paragraph {
