@@ -36,10 +36,11 @@
 		// },
 	];
 
-	let isOnTour = false;
+	let isOnTour = true;
 
 	onMount(() => {
 		isOnTour = $transitionManager.transitionAbout;
+		console.log(isOnTour, $transitionManager.transitionAbout);
 
 		if (isOnTour) {
 			anime({
@@ -65,10 +66,10 @@
 			delay: anime.stagger(80, {
 				start: 800,
 			}),
-			complete: () => {
-				if (!isOnTour) return;
-				document.getElementById("cont-button").style.opacity = 1;
-			},
+			// complete: () => {
+			// 	if (!isOnTour) return;
+			// 	document.getElementById("cont-button").style.opacity = 1;
+			// },
 		});
 	});
 
@@ -84,12 +85,18 @@
 			}),
 			complete: () => {
 				transitionManager.update((data) => {
-					return { ...data, transitionAbout: true };
+					return { ...data, transitionAbout: false };
+				});
+
+				scrollTo({
+					top: 0,
+					left: 0,
+					behavior: "smooth",
 				});
 
 				setTimeout(() => {
 					goto("/about");
-				}, 2000);
+				}, 100);
 			},
 		});
 	}
@@ -141,9 +148,9 @@
 		opacity: 0;
 	}
 
-	#cont-button {
-		transition: opacity 1100ms, color 150ms, background 150ms;
-	}
+	/* #cont-button {
+		transition: opacity 150ms, color 150ms, background 150ms;
+	} */
 
 	/* .paragraph {
 		padding: 10px 0;

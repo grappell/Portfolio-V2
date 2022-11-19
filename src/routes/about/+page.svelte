@@ -7,6 +7,17 @@
 
 	let isOnTour = false;
 
+	let sections = [
+		{
+			title: "For work",
+			body: "Here is a breif description of me, but in a way an employer woukd be intrested",
+		},
+		{
+			title: "On a more personal note",
+			body: "Here is a breif description of me, but like actually me",
+		},
+	];
+
 	onMount(() => {
 		isOnTour = $transitionManager.transitionAbout;
 
@@ -18,6 +29,15 @@
 			delay: anime.stagger(80, {
 				start: 800,
 			}),
+		});
+
+		anime({
+			targets: "h2 > div > hr",
+			width: "100%",
+			// easing: "easeOutCubic",
+			easing: "easeInOutQuint",
+			// easing: "easeInOutCirc",
+			duration: anime.stagger(500, { start: 4000 }),
 		});
 	});
 
@@ -56,7 +76,76 @@
 
 		<hr class="fade-in my-5 md:mt-4 mt-3 md:w-1/2 border-orange-100" />
 
-		<div class="spacer w-screen h-24 invisible" />
+		<h2 class="my-7 text-3xl font-semibold max-w-fit p-5 fade-in">
+			{#each sections as section}
+				<div class="fade-in max-w-max">
+					{section.title}
+					<hr class="fade-in border-orange-100" />
+				</div>
+				<p
+					class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
+				>
+					{section.body}
+				</p>
+			{/each}
+
+			<!-- <div class="fade-in max-w-max">
+				For work <hr class="fade-in border-orange-100" />
+			</div>
+			<p
+				class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
+			>
+				Cupidatat Lorem enim qui nostrud enim amet exercitation do esse ea deserunt eiusmod ullamco
+				consequat. Exercitation enim aliqua exercitation amet culpa dolor cupidatat elit amet
+				consectetur incididunt dolore pariatur. Cupidatat aliqua adipisicing aliquip non ex elit et
+				incididunt esse. Laborum consequat cillum occaecat irure fugiat non voluptate exercitation.
+				Occaecat non sint consequat laboris occaecat pariatur est eiusmod cillum. Commodo et cillum
+				minim et nisi elit. Ipsum occaecat dolor sit officia eu nulla commodo in. Ad Lorem ut
+				laboris ipsum veniam elit in quis enim ut. Aliqua laboris Lorem adipisicing esse eu
+				consequat commodo adipisicing dolor nostrud. Id nulla amet labore excepteur culpa commodo
+				anim id in deserunt et ut. Officia cupidatat incididunt laborum ullamco velit non incididunt
+				consequat mollit laboris labore aliquip ullamco.
+			</p>
+			<div class="fade-in max-w-max">
+				Personal
+				<hr class="fade-in border-orange-100" />
+			</div>
+			<p
+				class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
+			>
+				Cupidatat Lorem enim qui nostrud enim amet exercitation do esse ea deserunt eiusmod ullamco
+				consequat. Exercitation enim aliqua exercitation amet culpa dolor cupidatat elit amet
+				consectetur incididunt dolore pariatur. Cupidatat aliqua adipisicing aliquip non ex elit et
+				incididunt esse. Laborum consequat cillum occaecat irure fugiat non voluptate exercitation.
+				Occaecat non sint consequat laboris occaecat pariatur est eiusmod cillum. Commodo et cillum
+				minim et nisi elit. Ipsum occaecat dolor sit officia eu nulla commodo in. Ad Lorem ut
+				laboris ipsum veniam elit in quis enim ut. Aliqua laboris Lorem adipisicing esse eu
+				consequat commodo adipisicing dolor nostrud. Id nulla amet labore excepteur culpa commodo
+				anim id in deserunt et ut. Officia cupidatat incididunt laborum ullamco velit non incididunt
+				consequat mollit laboris labore aliquip ullamco.
+			</p>
+			<div class="fade-in max-w-max">
+				Past Employment
+				<hr class="fade-in border-orange-100" />
+			</div>
+			<p
+				class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
+			>
+				Cupidatat Lorem enim qui nostrud enim amet exercitation do esse ea deserunt eiusmod ullamco
+				consequat. Exercitation enim aliqua exercitation amet culpa dolor cupidatat elit amet
+				consectetur incididunt dolore pariatur. Cupidatat aliqua adipisicing aliquip non ex elit et
+				incididunt esse. Laborum consequat cillum occaecat irure fugiat non voluptate exercitation.
+				Occaecat non sint consequat laboris occaecat pariatur est eiusmod cillum. Commodo et cillum
+				minim et nisi elit. Ipsum occaecat dolor sit officia eu nulla commodo in. Ad Lorem ut
+				laboris ipsum veniam elit in quis enim ut. Aliqua laboris Lorem adipisicing esse eu
+				consequat commodo adipisicing dolor nostrud. Id nulla amet labore excepteur culpa commodo
+				anim id in deserunt et ut. Officia cupidatat incididunt laborum ullamco velit non incididunt
+				consequat mollit laboris labore aliquip ullamco.
+			</p>
+		</h2> -->
+
+			<div class="spacer w-screen h-24 invisible" />
+		</h2>
 	</div>
 </div>
 
@@ -70,6 +159,10 @@
 
 	.fade-in {
 		opacity: 0;
+	}
+
+	h2 > div > hr {
+		width: 0;
 	}
 
 	/* .paragraph {
