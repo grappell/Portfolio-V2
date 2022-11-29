@@ -22,11 +22,13 @@ a:hover {
     color: rgb(24, 142, 252);
 }
 
-/* For scrollbar */
+/* For scrollbar  */
 
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 0px;
+  /* ^^^ Hiding the scrollbar because I cannot be bothered to fix the overflow problem */
 }
 
 /* Track */

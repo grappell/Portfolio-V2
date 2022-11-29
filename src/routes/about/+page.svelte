@@ -4,17 +4,18 @@
 	import { goto } from "$app/navigation";
 
 	import { transitionManager } from "../../lib/store";
+	import Timeline from "../../components/Timeline.svelte";
 
 	let isOnTour = false;
 
 	let sections = [
 		{
-			title: "For work",
-			body: "Here is a breif description of me, but in a way an employer woukd be intrested",
+			title: "For work:",
+			body: "Here is a brief description of me, but in a way an employer would be interested",
 		},
 		{
-			title: "On a more personal note",
-			body: "Here is a breif description of me, but like actually me",
+			title: "On a more personal note:",
+			body: "Here is a brief description of me, but like actually me",
 		},
 	];
 
@@ -89,62 +90,17 @@
 				</p>
 			{/each}
 
-			<!-- <div class="fade-in max-w-max">
-				For work <hr class="fade-in border-orange-100" />
+			<div id="timeline" class="mt-20 ">
+				<div class="fade-in max-w-max">
+					Work History:
+					<hr class="fade-in border-orange-100" />
+				</div>
+				<div class="fade-in">
+					<Timeline />
+				</div>
 			</div>
-			<p
-				class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
-			>
-				Cupidatat Lorem enim qui nostrud enim amet exercitation do esse ea deserunt eiusmod ullamco
-				consequat. Exercitation enim aliqua exercitation amet culpa dolor cupidatat elit amet
-				consectetur incididunt dolore pariatur. Cupidatat aliqua adipisicing aliquip non ex elit et
-				incididunt esse. Laborum consequat cillum occaecat irure fugiat non voluptate exercitation.
-				Occaecat non sint consequat laboris occaecat pariatur est eiusmod cillum. Commodo et cillum
-				minim et nisi elit. Ipsum occaecat dolor sit officia eu nulla commodo in. Ad Lorem ut
-				laboris ipsum veniam elit in quis enim ut. Aliqua laboris Lorem adipisicing esse eu
-				consequat commodo adipisicing dolor nostrud. Id nulla amet labore excepteur culpa commodo
-				anim id in deserunt et ut. Officia cupidatat incididunt laborum ullamco velit non incididunt
-				consequat mollit laboris labore aliquip ullamco.
-			</p>
-			<div class="fade-in max-w-max">
-				Personal
-				<hr class="fade-in border-orange-100" />
-			</div>
-			<p
-				class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
-			>
-				Cupidatat Lorem enim qui nostrud enim amet exercitation do esse ea deserunt eiusmod ullamco
-				consequat. Exercitation enim aliqua exercitation amet culpa dolor cupidatat elit amet
-				consectetur incididunt dolore pariatur. Cupidatat aliqua adipisicing aliquip non ex elit et
-				incididunt esse. Laborum consequat cillum occaecat irure fugiat non voluptate exercitation.
-				Occaecat non sint consequat laboris occaecat pariatur est eiusmod cillum. Commodo et cillum
-				minim et nisi elit. Ipsum occaecat dolor sit officia eu nulla commodo in. Ad Lorem ut
-				laboris ipsum veniam elit in quis enim ut. Aliqua laboris Lorem adipisicing esse eu
-				consequat commodo adipisicing dolor nostrud. Id nulla amet labore excepteur culpa commodo
-				anim id in deserunt et ut. Officia cupidatat incididunt laborum ullamco velit non incididunt
-				consequat mollit laboris labore aliquip ullamco.
-			</p>
-			<div class="fade-in max-w-max">
-				Past Employment
-				<hr class="fade-in border-orange-100" />
-			</div>
-			<p
-				class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
-			>
-				Cupidatat Lorem enim qui nostrud enim amet exercitation do esse ea deserunt eiusmod ullamco
-				consequat. Exercitation enim aliqua exercitation amet culpa dolor cupidatat elit amet
-				consectetur incididunt dolore pariatur. Cupidatat aliqua adipisicing aliquip non ex elit et
-				incididunt esse. Laborum consequat cillum occaecat irure fugiat non voluptate exercitation.
-				Occaecat non sint consequat laboris occaecat pariatur est eiusmod cillum. Commodo et cillum
-				minim et nisi elit. Ipsum occaecat dolor sit officia eu nulla commodo in. Ad Lorem ut
-				laboris ipsum veniam elit in quis enim ut. Aliqua laboris Lorem adipisicing esse eu
-				consequat commodo adipisicing dolor nostrud. Id nulla amet labore excepteur culpa commodo
-				anim id in deserunt et ut. Officia cupidatat incididunt laborum ullamco velit non incididunt
-				consequat mollit laboris labore aliquip ullamco.
-			</p>
-		</h2> -->
 
-			<div class="spacer w-screen h-24 invisible" />
+			<div class="spacer w-1 h-24 invisible" />
 		</h2>
 	</div>
 </div>

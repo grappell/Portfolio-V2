@@ -40,6 +40,7 @@
 
 	onMount(() => {
 		isOnTour = $transitionManager.transitionAbout;
+		// isOnTour = true;
 		console.log(isOnTour, $transitionManager.transitionAbout);
 
 		if (isOnTour) {
@@ -121,7 +122,7 @@
 		{/each}
 
 		{#if isOnTour}
-			<div class="flex flex-row justify-center mt-20 ml-6">
+			<div class="flex flex-row justify-center md:mt-20 mt-10 ml-6">
 				<button
 					id="cont-button"
 					class=" bg-red-800 px-10 py-4 rounded-lg hover:bg-red-300 transition-colors hover:text-black text-2xl fade-in"
