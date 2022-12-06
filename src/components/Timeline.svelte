@@ -2,24 +2,30 @@
 <script>
 	let past_jobs = [
 		{
-			date: "September 2022",
+			date: "August 2022 to Present",
 			title: "Full Stack Developer & Architect",
 			employer: "MainLineMusic.live (MLM LLC)",
 			body: [
-				"Job Description: Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo ",
-				"(Extra space)",
+				"MainLineMusic is a tech firm that specializes connecting you (as the fan) to your favorite musicians. I was hired as the only developer, where I was responsible for everything that had to do with technology. I was at times the IT guy, database admin, software architect, and so much more. I took the challenge of creating a full stack app, capable of scaling to millions, to heart.",
+				"During my time at MainLineMusic, I was closely involved with every single step of creation, from design to working product. When I started, the idea was only a brainstorm, and over the next year, it evolved into the thing that is today.",
 			],
-			bullets: ["One", "Two", "Three"],
+			bullets: [
+				"Maintained a complete codebase, from server to website",
+				"Took on many roles, not just ones of a developer",
+				"Contributed to the positive growth of the company through innovative ideas",
+			],
 		},
 		{
 			date: "Summer 2021",
 			title: "CIT",
-			employer: "theCoderSchool Berkeley",
+			employer: "TheCoderSchool Berkeley",
 			body: [
-				"Job Description: Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo ",
-				"(Extra space)",
+				"TheCoderSchool is a company that focuses on teaching kids how to code. During my quick summer there as a CIT, I helped teach around 30 kids the ins and outs of how to build websites. We covered everything from how to create simple websites to making complex logic for stylized, custom sites",
 			],
-			bullets: ["One", "Two", "Three"],
+			bullets: [
+				"Fostered a deep and rich learning environment for students",
+				"Aided counselors in their jobs to further productivity",
+			],
 		},
 	];
 </script>
@@ -32,25 +38,28 @@
 				<label class="timeline-event-icon" />
 				<div class="timeline-event-copy">
 					<p class="timeline-event-thumbnail">{job.date}</p>
-					<h3>{job.title}</h3>
-					<h4>{job.employer}</h4>
+					<h3 class="text-orange-300">{job.title}</h3>
+					<h4>@ {job.employer}</h4>
 
 					{#each job.body as chunk}
-						<p>
+						<p class="text-sm">
 							{chunk}
 						</p>
 					{/each}
 
-					<ul>
-						{#each job.bullets as bullet}
-							<li>
-								<span class="text-2xl -my-5">&rarrc;</span>
-								<!-- Add the arrow in front of the entry -->
-								<!-- <span class="text-2xl -my-5">&rarrhk;</span> (Possible alternative) -->
-								{bullet}
-							</li>
-						{/each}
-					</ul>
+					<div class="bg-gray-800 bg-opacity-30 p-5 rounded-lg mt-4">
+						<p class="text-lg text-orange-200">Quick highlights:</p>
+						<ul class="-mt-5 text-sm">
+							{#each job.bullets as bullet}
+								<li>
+									<span class="text-2xl -my-5">&rarrc;</span>
+									<!-- Add the arrow in front of the entry -->
+									<!-- <span class="text-2xl -my-5">&rarrhk;</span> (Possible alternative) -->
+									{bullet}
+								</li>
+							{/each}
+						</ul>
+					</div>
 				</div>
 			</li>
 		{/each}
@@ -78,7 +87,8 @@
 	.timeline {
 		margin: 4em auto;
 		position: relative;
-		max-width: 46em;
+		/* max-width: 46em; */
+		max-width: 100%;
 	}
 	.timeline:before {
 		background-image: linear-gradient(to bottom, rgba(134, 129, 123, 1), rgba(134, 129, 123, 0));
@@ -90,6 +100,7 @@
 		left: 2em;
 		width: 2px;
 		height: 100%;
+		border-radius: 100px;
 	}
 
 	.timeline-event {
