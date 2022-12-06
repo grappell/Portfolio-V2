@@ -1,60 +1,66 @@
 <!-- https://codepen.io/Fischaela/pen/NWNQKW -->
+<script>
+	let past_jobs = [
+		{
+			date: "September 2022",
+			title: "Full Stack Developer & Architect",
+			employer: "MainLineMusic.live (MLM LLC)",
+			body: [
+				"Job Description: Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo ",
+				"(Extra space)",
+			],
+			bullets: ["One", "Two", "Three"],
+		},
+		{
+			date: "Summer 2021",
+			title: "CIT",
+			employer: "theCoderSchool Berkeley",
+			body: [
+				"Job Description: Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo Yabba dabba doo ",
+				"(Extra space)",
+			],
+			bullets: ["One", "Two", "Three"],
+		},
+	];
+</script>
+
 <div id="body">
 	<ul class="timeline">
-		<li class="timeline-event">
-			<!-- svelte-ignore a11y-label-has-associated-control -->
-			<label class="timeline-event-icon" />
-			<div class="timeline-event-copy">
-				<p class="timeline-event-thumbnail">April 2011 - heute</p>
-				<h3>Geil,Danke! GmbH</h3>
-				<h4>Geschäftsführerin eines Web-Studios</h4>
-				<p>
-					<strong>Schwerpunkt: Frontend-Entwicklung</strong><br />Entwickeln von anspruchsvollen,
-					animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser,
-					optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).
-				</p>
-				<p>
-					<strong>Projektmanagement mit Scrum</strong><br />Ständiges Verbessern des agilen
-					Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.
-				</p>
-			</div>
-		</li>
-		<li class="timeline-event">
-			<!-- svelte-ignore a11y-label-has-associated-control -->
-			<label class="timeline-event-icon" />
-			<div class="timeline-event-copy">
-				<p class="timeline-event-thumbnail">November 2009 - März 2011</p>
-				<h3>Freelancer</h3>
-				<h4>Designer und Autor</h4>
-				<p>
-					Konzeption, Design und Produktion von Digitalen Magazinen mit InDesign, der Adobe Digital
-					Publishing Suite und HTML5. Co-Autorin der Fachbücher "Digitales Publizieren für Tablets"
-					und "Adobe Digital Publishing Suite" erschienen im dpunkt.verlag.
-				</p>
-			</div>
-		</li>
-		<li class="timeline-event">
-			<!-- svelte-ignore a11y-label-has-associated-control -->
-			<label class="timeline-event-icon" />
-			<div class="timeline-event-copy">
-				<p class="timeline-event-thumbnai">April 2011 - heute</p>
-				<h3>konplan gmbh</h3>
-				<h4>IT-Consultant</h4>
-				<p>
-					<strong>Systemarchitektur, Consulting</strong><br />Konzeption und Modellierung von
-					Systemen und APIs für Digital Publishing und Entitlement nach SOA
-				</p>
-			</div>
-		</li>
+		{#each past_jobs as job}
+			<li class="timeline-event">
+				<!-- svelte-ignore a11y-label-has-associated-control -->
+				<label class="timeline-event-icon" />
+				<div class="timeline-event-copy">
+					<p class="timeline-event-thumbnail">{job.date}</p>
+					<h3>{job.title}</h3>
+					<h4>{job.employer}</h4>
+
+					{#each job.body as chunk}
+						<p>
+							{chunk}
+						</p>
+					{/each}
+
+					<ul>
+						{#each job.bullets as bullet}
+							<li>
+								<span class="text-2xl -my-5">&rarrc;</span>
+								<!-- Add the arrow in front of the entry -->
+								<!-- <span class="text-2xl -my-5">&rarrhk;</span> (Possible alternative) -->
+								{bullet}
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</li>
+		{/each}
 	</ul>
 </div>
 
 <style>
-	/* Variables */
 	/* Fonts */
 	@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700");
 	#body {
-		/* font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
 		font-size: 0.5em;
 		font-weight: 300;
 		line-height: 1.5;
@@ -75,7 +81,8 @@
 		max-width: 46em;
 	}
 	.timeline:before {
-		background-color: rgb(134, 129, 123);
+		background-image: linear-gradient(to bottom, rgba(134, 129, 123, 1), rgba(134, 129, 123, 0));
+		/* background-color: rgba(134, 129, 123, 1); */
 		content: "";
 		margin-left: -1px;
 		position: absolute;
@@ -115,9 +122,7 @@
 		font-size: 1.2em;
 		margin-bottom: 1.2em;
 	}
-	.timeline-event-copy strong {
-		font-weight: 700;
-	}
+
 	.timeline-event-copy p:not(.timeline-event-thumbnail) {
 		padding-bottom: 1.2em;
 	}
