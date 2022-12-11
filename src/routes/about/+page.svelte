@@ -11,11 +11,14 @@
 	let sections = [
 		{
 			title: "For work:",
-			body: "Here is a brief description of me, but in a way an employer would be interested",
+			body: [
+				"I'm a developer with over 10 years of experience in development of web-based applications. I am skilled in every front from building buttons you can click on to scaling servers running custom logic. ",
+				"This is part 2",
+			],
 		},
 		{
 			title: "On a more personal note:",
-			body: "Here is a brief description of me, but like actually me",
+			body: ["Here is a brief description of me, but like actually me"],
 		},
 	];
 
@@ -86,7 +89,9 @@
 				<p
 					class="text-sm md:text-base my-5 ml-1 fade-in bg-gray-800 rounded-lg p-5 font-thin max-w-[99%]"
 				>
-					{section.body}
+					{#each section.body as chunk}
+						<p class="mb-4 last:mb-0">{chunk}</p>
+					{/each}
 				</p>
 			{/each}
 
